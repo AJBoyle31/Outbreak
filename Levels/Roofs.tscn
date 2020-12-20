@@ -52,4 +52,5 @@
 
 [node name="Roofs" type="TileMap"]
 tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
 format = 1
