@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://NPC.gd"
+} ]
 _global_script_class_icons={
-
+"NPC": ""
 }
 
 [application]
@@ -58,6 +63,9 @@ WalkDown={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="NPC"
+2d_physics/layer_4="Hitbox"
+2d_physics/layer_5="Hurtbox"
 
 [rendering]
 
