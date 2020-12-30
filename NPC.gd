@@ -12,11 +12,13 @@ enum {
 }
 
 var velocity = Vector2.ZERO
-var state = IDLE
+var state = WANDER
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var playerDetectionZone = $PlayerDetectionZone
+onready var wanderTimer = $WanderTimer
 
 func _ready():
 	animationTree.active = true
@@ -29,19 +31,32 @@ func _physics_process(delta):
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 			animationState.travel("Idle")
 		WANDER:
+			wanderTimer.paused = false
 			velocity = velocity.move_toward(Vector2.RIGHT * MAX_SPEED, ACCELERATION * delta)
 			animationState.travel("Walk")
+			seek_player()
 		CHASE:
-			pass
+			wanderTimer.paused = true
+			MAX_SPEED = abs(MAX_SPEED)
+			var player = playerDetectionZone.player
+			
+			if player != null:
+				var direction = (player.global_position - global_position).normalized()
+				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+			else:
+				state = WANDER
 	
 	animationTree.set("parameters/Idle/blend_position", velocity)
 	animationTree.set("parameters/Walk/blend_position", velocity)
 	velocity = move_and_slide(velocity)
 
+func seek_player():
+	if playerDetectionZone.can_see_player():
+		state = CHASE
 
 
 func _on_WanderTimer_timeout():
 	#Setting it to WANDER right now for testing purposes
 	#Might need to disable pending design decisions
-	state = WANDER
+	#state = WANDER
 	MAX_SPEED *= -1
