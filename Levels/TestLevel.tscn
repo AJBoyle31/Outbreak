@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/WalkingSurfaces.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Levels/Utility.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/Fences.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Levels/Misc.tscn" type="PackedScene" id=8]
+[ext_resource path="res://NPC/OldMan.tscn" type="PackedScene" id=9]
+[ext_resource path="res://NPC/Girl.tscn" type="PackedScene" id=10]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -34,6 +36,12 @@ tile_data = PoolIntArray( 196631, 0, 0, 720900, 1, 0, 720915, 0, 0, 720916, 2, 0
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 206.243, 77.7446 )
+
+[node name="OldMan" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 211.584, -3.75508 )
+
+[node name="Girl" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 207.094, 157.879 )
 
 [node name="Utility" parent="YSort" instance=ExtResource( 6 )]
 tile_data = PoolIntArray( 65551, 5, 0, 393223, 5, 0, 458754, 4, 0, 983067, 3, 0, 1114108, 536870920, 0, 1048576, 8, 0, 1048577, 9, 0, 1179644, 536870922, 0, 1114112, 10, 0, 1114113, 10, 0, 1310721, 9, 0, 1376257, 10, 0 )
