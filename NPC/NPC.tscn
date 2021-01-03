@@ -3,7 +3,6 @@
 [ext_resource path="res://NPC/NPC.gd" type="Script" id=1]
 [ext_resource path="res://Hitbox and Hurtbox/PlayerDetectionZone.tscn" type="PackedScene" id=2]
 
-
 [node name="NPC" type="KinematicBody2D"]
 position = Vector2( 0, -6 )
 script = ExtResource( 1 )

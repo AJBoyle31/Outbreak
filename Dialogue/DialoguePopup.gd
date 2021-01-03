@@ -23,22 +23,22 @@ func answers_set(new_value):
 	npcAnswers.text = new_value
 
 func open():
-	get_tree().paused = true
+	#get_tree().paused = true
 	popup()
-	animationPlayer.playback_speed = 60.0 / dialogue.length
-	animationPlayer.play("ShowDialogue")
+	#animationPlayer.playback_speed = 60.0 / dialogue.length()
+	#animationPlayer.play("ShowDialogue")
 
 func close():
-	set_process_input(false)
+	get_tree().paused = false
+	hide()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	set_process_input(true)
+	
 
 func _input(event):
 	if event is InputEventKey:
-		if event.scancode == KEY_A:
-			set_process_input(false)
-			npc.talk("A")
+		if event.scancode == KEY_C:
+			close()
 		elif event.scancode == KEY_B:
 			set_process_input(false)
-			npc.talk("B")
