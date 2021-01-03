@@ -11,6 +11,10 @@ enum {
 	CHASE
 }
 
+var dialogue_state = 0
+var dialoguePopup
+var player
+
 var velocity = Vector2.ZERO
 var state = WANDER
 
@@ -22,6 +26,8 @@ onready var wanderTimer = $WanderTimer
 
 func _ready():
 	animationTree.active = true
+	dialoguePopup = get_tree().root.get_node("Root/CanvasLayer/DialoguePopup")
+	player = get_tree().root.get_node("Root/Player")
 
 func _physics_process(delta):
 	
@@ -60,3 +66,8 @@ func _on_WanderTimer_timeout():
 	#Might need to disable pending design decisions
 	#state = WANDER
 	MAX_SPEED *= -1
+
+
+func talk(answer = ""):
+	dialoguePopup.npc = self
+	dialoguePopup.npc_name = "Old Man"
