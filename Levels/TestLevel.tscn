@@ -41,10 +41,12 @@ position = Vector2( 206.243, 77.7446 )
 [node name="OldMan" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 211.584, -3.75508 )
 NAME = "Old Pete"
+DIALOGUE = "I don't believe in the virus"
 
 [node name="Girl" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 207.094, 157.879 )
 NAME = "Idiot Girl"
+DIALOGUE = "Nice face diaper"
 
 [node name="Utility" parent="YSort" instance=ExtResource( 6 )]
 tile_data = PoolIntArray( 65551, 5, 0, 393223, 5, 0, 458754, 4, 0, 983067, 3, 0, 1114108, 536870920, 0, 1048576, 8, 0, 1048577, 9, 0, 1179644, 536870922, 0, 1114112, 10, 0, 1114113, 10, 0, 1310721, 9, 0, 1376257, 10, 0 )

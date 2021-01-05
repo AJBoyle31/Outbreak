@@ -5,6 +5,7 @@ export var MAX_SPEED: int = 50
 export var ACCELERATION: int = 500
 export var FRICTION: int = 300
 export var NAME: String
+export var DIALOGUE: String
 
 enum {
 	IDLE
@@ -73,15 +74,12 @@ func _on_WanderTimer_timeout():
 	MAX_SPEED *= -1
 
 
-func talk(answer = ""):
+func talk():
 	#dialoguePopup.npc = self
 	dialoguePopup.npc_name = NAME
-	match dialogue_state:
-		0:
-			dialoguePopup.dialogue = "I can't stop coughing!"
-			dialoguePopup.answers = ""
-			dialoguePopup.open()
-			
-			
+	dialoguePopup.dialogue = DIALOGUE
+	dialoguePopup.open()
+	
+	
 
 
