@@ -37,3 +37,7 @@ func _physics_process(delta):
 	
 	
 	velocity = move_and_slide(velocity)
+
+
+func _on_Hurtbox_area_entered(area):
+	print("VIRUS!")
