@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="Outbreak"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://Player/PlayerStats.tscn"
+
 [display]
 
 window/size/width=512

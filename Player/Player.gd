@@ -10,6 +10,8 @@ var velocity: Vector2 = Vector2.ZERO
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var virusTimer = $VirusTimer
+onready var stats = PlayerStats
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,3 +43,12 @@ func _physics_process(delta):
 
 func _on_Hurtbox_area_entered(area):
 	print("VIRUS!")
+	virusTimer.start()
+
+
+func _on_VirusTimer_timeout():
+	stats.health -= 1
+
+
+func _on_Hurtbox_area_exited(area):
+	virusTimer.stop()
