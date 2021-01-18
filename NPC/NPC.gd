@@ -28,7 +28,7 @@ onready var wanderTimer = $WanderTimer
 
 func _ready():
 	animationTree.active = true
-	dialoguePopup = get_tree().root.get_node("TestLevel/CanvasLayer/DialoguePopup")
+	dialoguePopup = get_tree().root.get_node("TestLevel/HUD/DialoguePopup")
 	playerer = get_tree().root.get_node("TestLevel/YSort/Player")
 
 func _physics_process(delta):
