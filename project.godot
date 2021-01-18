@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="Outbreak"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://Player/PlayerStats.tscn"
+
 [display]
 
 window/size/width=512
@@ -64,8 +68,8 @@ WalkDown={
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="NPC"
-2d_physics/layer_4="Hitbox"
-2d_physics/layer_5="Hurtbox"
+2d_physics/layer_4="EnemyHitbox"
+2d_physics/layer_5="PlayerHurtbox"
 
 [rendering]
 

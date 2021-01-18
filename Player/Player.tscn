@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/tilemap_packed.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Hitbox and Hurtbox/Hurtbox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.01275
@@ -208,6 +209,9 @@ graph_offset = Vector2( 41, -38 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=23]
 
+[sub_resource type="CircleShape2D" id=24]
+radius = 13.3447
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -6 )
 collision_layer = 2
@@ -243,4 +247,20 @@ parameters/Walk/blend_position = Vector2( 0.117465, -0.102122 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.7, 0.7 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 6 )
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource( 24 )
+
+[node name="VirusTimer" type="Timer" parent="."]
+wait_time = 0.1
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_Hurtbox_area_exited"]
+[connection signal="timeout" from="VirusTimer" to="." method="_on_VirusTimer_timeout"]
+
+[editable path="Hurtbox"]

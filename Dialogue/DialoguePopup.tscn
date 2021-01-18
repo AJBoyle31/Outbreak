@@ -28,6 +28,7 @@ tracks/0/keys = {
 
 [node name="DialoguePopup" type="Popup"]
 pause_mode = 2
+visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 popup_exclusive = true

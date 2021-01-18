@@ -10,7 +10,7 @@
 [ext_resource path="res://Levels/Misc.tscn" type="PackedScene" id=8]
 [ext_resource path="res://NPC/OldMan.tscn" type="PackedScene" id=9]
 [ext_resource path="res://NPC/Girl.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Dialogue/DialoguePopup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=12]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -41,7 +41,7 @@ position = Vector2( 206.243, 77.7446 )
 [node name="OldMan" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 211.584, -3.75508 )
 NAME = "Old Pete"
-DIALOGUE = "I don't believe in the virus"
+DIALOGUE = "I can't stop coughing."
 
 [node name="Girl" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 207.094, 157.879 )
@@ -54,6 +54,4 @@ tile_data = PoolIntArray( 65551, 5, 0, 393223, 5, 0, 458754, 4, 0, 983067, 3, 0,
 [node name="Fences" parent="YSort" instance=ExtResource( 7 )]
 tile_data = PoolIntArray( 327679, 8, 0, 262158, 13, 0, 393213, 8, 0, 458751, 8, 0, 524285, 11, 0, 524286, 11, 0, 524287, 11, 0, 655357, 11, 0, 655358, 11, 0, 655359, 11, 0, 589831, 14, 0, 851976, 0, 0, 851979, 1, 0, 851980, 0, 0, 983048, 0, 0, 983051, 1, 0, 983052, 0, 0 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 11 )]
+[node name="HUD" parent="." instance=ExtResource( 12 )]
